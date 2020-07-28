@@ -4,6 +4,7 @@ import datetime as dt
 from .models import Article
 from .forms import NewArticleForm
 
+
 # Create your views here.
 
 def welcome(request):
