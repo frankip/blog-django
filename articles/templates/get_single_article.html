@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ block.super }}
+
+<h1 class="text-center">{{ single_article.title }}</h1>
+
+
+
+
+
+<div class="card">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ single_article.title }}</h5>
+      <p class="card-text">{{ single_article.post }}</p>
+      <p>{{single_article.pub_date}}</p>
+    </div>
+  </div>
+{% endblock %}

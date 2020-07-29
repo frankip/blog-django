@@ -21,3 +21,17 @@ class Article(models.Model):
     post = models.TextField()
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
+    article_image = models.ImageField(upload_to = 'articles/', null=True ,blank=True)
+
+    @classmethod
+    def get_search(cls, search_term):
+        searched = cls.objects.filter(title__icontains = search_term)
+        return searched
+
+    @classmethod
+    def get_single_article(cls, article_id):
+        single_article = cls.objects.get(id = article_id)
+        return single_article
+
+    def __str__(self):
+        return self.title

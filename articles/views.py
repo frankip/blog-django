@@ -17,12 +17,20 @@ def view_articles(request):
 
     return render(request, 'articles.html', {"article": article})
 
+
+def get_single_article(request, article_id):
+    single_article = Article.get_single_article(article_id)
+    print('---single_article-->', single_article)
+    context = {
+        "single_article": single_article,
+    }
+    return render(request, 'get_single_article.html', context)
+
 def search_article(request):
 
     if 'article' in request.GET and request.GET.get('article'):
         search = request.GET.get('article')
-        searched = Article.objects.filter(title__icontains = search)
-        message = f"{searched}"
+        searched = Article.get_search(search)
         context = {
             "searched" : searched,
         }
