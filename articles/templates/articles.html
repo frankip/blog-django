@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ block.super }}
+
+<h1 class="text-center">Articles</h1>
+    
+    {% for news in article %}
+        <div>
+            <h3>{{news.title}}</h3>
+
+        </div>
+
+    {% endfor %}
+
+{{ date }}
+{% endblock %}
