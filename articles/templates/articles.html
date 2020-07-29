@@ -5,13 +5,26 @@
 
 <h1 class="text-center">Articles</h1>
     
+<div class="row">
     {% for news in article %}
-        <div>
-            <h3>{{news.title}}</h3>
+        <!-- displaying News articles -->
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="card" style="padding: 2rem ;">
+                {% if not news.article_image %}
+                    <img src="https://placekitten.com/340/260" class="img-responsive" alt="Image">
+                {% else %}
+                <img src="{{news.article_image.url}}" class="img-responsive" alt="Image">
+                {% endif %}
+                <div class="card-body">
+                    <h2 class="card-title"> {{ news.title }} </h2>
+                    <p class="card-text">{{ news.post}}</p>
+                    <footer class="blockquote-footer">{{ news.pub_date}} </footer>
+                </div>
 
+            </div>
         </div>
-
-    {% endfor %}
+        {% endfor %}
+    </div>
 
 {{ date }}
 {% endblock %}
