@@ -17,6 +17,17 @@ def view_articles(request):
 
     return render(request, 'articles.html', {"article": article})
 
+def view_single_article(request, article_id):
+    try:
+        article = Article.objects.get(id = article_id)
+    except DoesNotExist:
+        raise Http404()
+    context = {
+        'id': article_id,
+        "article": article,
+    }
+    return render(request, 'single_article.html', context)
+
 def search_article(request):
 
     if 'article' in request.GET and request.GET.get('article'):

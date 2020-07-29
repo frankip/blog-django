@@ -6,12 +6,14 @@ from django.urls import path
 from .views import (
     welcome, 
     view_articles,
-    search_article
+    search_article,
+    view_single_article,
     )
 
 urlpatterns = [
     path('', welcome, name="welcome"),
     path('article', view_articles, name="articles"),
+    path('article/<int:article_id>', view_single_article, name="search"),
     path('search', search_article, name="search"),
 
     # url('^&')
