@@ -11,9 +11,9 @@ from .views import (
     )
 
 urlpatterns = [
-    path('', welcome, name="welcome"),
-    path('article', view_articles, name="articles"),
-    path('article/<int:article_id>', view_single_article, name="search"),
+    # path('', welcome, name="welcome"),
+    path('', view_articles, name="articles"),
+    path('article/<int:article_id>', view_single_article, name="single_article"),
     path('search', search_article, name="search"),
 
     # url('^&')
