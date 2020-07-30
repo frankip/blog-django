@@ -9,6 +9,9 @@ verify_ssl = true
 django = "*"
 pillow = "*"
 django-tinymce = "*"
+whitenoise = "*"
+django-heroku = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.6"
