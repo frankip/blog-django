@@ -12,6 +12,8 @@ django-tinymce = "*"
 whitenoise = "*"
 django-heroku = "*"
 python-decouple = "*"
+gunicorn = "~=19.10.0"
+django-bootstrap3 = "*"
 
 [requires]
 python_version = "3.6"
