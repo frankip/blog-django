@@ -12,7 +12,7 @@ from .views import (
 
 urlpatterns = [
     # path('', welcome, name="welcome"),
-    path('article', view_articles, name="articles"),
+    path('', view_articles, name="articles"),
     path('article/<int:article_id>', get_single_article, name="single_article"),
     path('search', search_article, name="search"),
 

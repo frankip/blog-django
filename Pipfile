@@ -8,6 +8,12 @@ verify_ssl = true
 [packages]
 django = "*"
 pillow = "*"
+whitenoise = "*"
+python-decouple = "*"
+dj-database-url = "*"
+gunicorn = "~=19.10.0"
+django-heroku = "*"
+django-bootstrap3 = "*"
 
 [requires]
 python_version = "3.6"
