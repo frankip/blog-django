@@ -17,8 +17,11 @@
                 {% endif %}
                 <div class="card-body">
                     <h2 class="card-title"> {{ news.title }} </h2>
-                    <p class="card-text">{{ news.post}}</p>
+                    {% autoescape on %}
+                    <p class="card-text">{{ news.post |safe }}</p>
                     <footer class="blockquote-footer">{{ news.pub_date}} </footer>
+                    {% endautoescape %}
+
                     <a href="{% url 'single_article' article_id=news.id %}">view details</a>
                 </div>
 

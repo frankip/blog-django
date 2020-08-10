@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import datetime as dt
 from .models import Article
+from .forms import NewArticleForm
 
 # Create your views here.
 
@@ -10,10 +11,26 @@ def welcome(request):
     return render(request, 'welcome.html', {"date": date })
 
 
-def view_articles(request):
-    article = Article.objects.all()
+def create_article(request):
+    current_user = request.user
 
-    # print('---articles', article)
+    if request.method == 'POST':
+        form = NewArticleForm(request.POST, request.FILES)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.editor = current_user
+            article.save()
+        return redirect('articles')
+
+    else:
+        form = NewArticleForm()
+    return render(request, 'new-article.html', {"form": form})
+
+def view_articles(request):
+    article_set = Article.objects.all()
+    article = reversed(list(article_set))
+
+    print('---articles', article)
 
     return render(request, 'articles.html', {"article": article})
 

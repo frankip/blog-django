@@ -12,7 +12,9 @@
     </div>
  
     <div class="row">
-      <p>{{article.post}}</p>
+      {% autoescape on %}
+      <p class="card-text">{{ article.post |safe }}</p>
+      {% endautoescape %}
     </div>
  
     <div class="row">
